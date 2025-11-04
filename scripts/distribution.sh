@@ -15,7 +15,7 @@ for matrix in $dataset
 do
   echo "Running distribution experiments for matrix $matrix"
   echo "--Running ParAMD with 64 thread(s)"
-  OMP_NUM_THREADS=64 OMP_PLACE=cores ./build/paramd \
+  OMP_NUM_THREADS=64 OMP_PLACES=cores ./build/paramd \
     --matrix $SCRATCH_DIR/dataset/$matrix/$matrix.mtx --algo paramd --seed 1 --stat \
     > $SCRATCH_DIR/dataset/$matrix/$matrix.paramd.distribution.s1.t64.log
 done

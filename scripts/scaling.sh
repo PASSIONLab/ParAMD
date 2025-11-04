@@ -20,12 +20,12 @@ do
     for thread in 1 64
     do
       echo "----Running ParAMD with $thread thread(s)"
-      OMP_NUM_THREADS=$thread OMP_PLACE=cores ./build/paramd \
+      OMP_NUM_THREADS=$thread OMP_PLACES=cores ./build/paramd \
         --matrix $SCRATCH_DIR/dataset/$matrix/$matrix.mtx --algo paramd --seed $seed \
         > $SCRATCH_DIR/dataset/$matrix/$matrix.paramd.scaling.s$seed.t$thread.log
     done
     echo "----Running AMD"
-    OMP_NUM_THREADS=64 OMP_PLACE=cores ./build/paramd \
+    OMP_NUM_THREADS=64 OMP_PLACES=cores ./build/paramd \
         --matrix $SCRATCH_DIR/dataset/$matrix/$matrix.mtx --algo amd --seed $seed \
         > $SCRATCH_DIR/dataset/$matrix/$matrix.amd.scaling.s$seed.log
   done

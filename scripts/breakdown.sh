@@ -17,7 +17,7 @@ do
   for thread in 1 2 4 8 16 32 64
   do
     echo "--Running ParAMD with $thread thread(s)"
-    OMP_NUM_THREADS=$thread OMP_PLACE=cores ./build/paramd \
+    OMP_NUM_THREADS=$thread OMP_PLACES=cores ./build/paramd \
       --matrix $SCRATCH_DIR/dataset/$matrix/$matrix.mtx --algo paramd --seed 1 --breakdown \
       > $SCRATCH_DIR/dataset/$matrix/$matrix.paramd.breakdown.s1.t$thread.log
   done
